@@ -92,7 +92,8 @@ function find_longest_word(sentence) {
 console.log(find_longest_word("I am Carolina"));
 
 /////////////////////////////////////////////////////////// Ruby Methods 2
-// Read about the Ruby select method. Then refactor the code below using select.
+
+// 1 Read about the Ruby select method. Then refactor the code below using select.
 // Ruby solution
 
 // solution:
@@ -100,3 +101,64 @@ console.log(find_longest_word("I am Carolina"));
 // even_numbers = number.select { |number| number.even? }
 
 // p even_numbers
+
+// ```
+
+var digits = [1, 2, 4, 2];
+console.log(digits.filter((number) => number % 2 == 0));
+
+//2 Use the select method with the following array of hashes to create a new array of hashes that only contain movies with a rating less than 4.0.
+var movies = [
+  { id: 1, title: "Die Hard", rating: 4.0 },
+  { id: 2, title: "Bad Boys", rating: 5.0 },
+  { id: 3, title: "The Chamber", rating: 3.0 },
+  { id: 4, title: "Fracture", rating: 2.0 },
+];
+//Ruby syntax
+// p movies.select { |movie| movie[rating:] < 4.0}
+
+// Javascript
+console.log(movies.filter((movie) => movie["rating"] < 4));
+
+//3Use the select method combined with the map method to convert the array of hashes into an array of hashes that only contain movie ids of the movies with the letter 'b' in the title (case insensitive).
+movies = [
+  { id: 1, title: "Die Hard", rating: 4.0 },
+  { id: 2, title: "Bad Boys", rating: 5.0 },
+  { id: 3, title: "The Chamber", rating: 3.0 },
+  { id: 4, title: "Fracture", rating: 2.0 },
+];
+
+//Ruby syntax
+// movies_b = movies.select{ |movie| movie[:title].include?("b")}
+
+//Javascript
+console.log(movies.filter((movie) => movie["title"].toLowerCase().includes("b")));
+
+//4 Write a method called palindrome? which should accept a string as a parameter and return a boolean that indicates whether the string is a palindrome. A palindrome is a word that reads the same both forwards and backwards. Examples: eye, madam, racecar
+
+function palindrome(string) {
+  var reversString = string.split("").reverse().join("");
+  if (string === reversString) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(palindrome("tacocat"));
+console.log(palindrome("wazzzzup"));
+console.log(palindrome("car"));
+
+// 5 Write a method called split_array, with two parameters, the first being an array, and the second being an integer. The method will then create an array of other arrays, each one being the size of the indicated by the second parameter.
+
+function split_array(array, integer) {
+  var position = 0;
+  var new_array = [];
+  do {
+    new_array.push(integer);
+  } while (position < array.length);
+  {
+    position = position++;
+  }
+}
+console.log(split_array([0, 1, 2, 3, 4, 5], 2));
+console.log(split_array([0, 1, 2, 3, 4, 5], 3));
